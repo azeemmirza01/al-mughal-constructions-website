@@ -1,0 +1,16 @@
+{
+  "name": "AL Mughal Constructions",
+  "short_name": "AL Mughal",
+  "description": "Domestic & Commercial Property Experts in Bradford, West Yorkshire",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#faf9f5",
+  "theme_color": "#4a1a22",
+  "icons": [
+    {
+      "src": "/images/header-logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

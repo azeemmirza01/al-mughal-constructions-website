@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# optimised webp assets used in production; keep large source PNGs local only
+public/images/*.png
