@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Montserrat } from "next/font/google";
 import { SITE } from "@/lib/data";
+import { SEO } from "@/lib/seo";
 import { getAllSchemas } from "@/lib/schema";
 import "./globals.css";
 
@@ -20,33 +21,30 @@ const inter = Inter({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#4a1a22",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#4a1a22" },
+    { media: "(prefers-color-scheme: dark)", color: "#4a1a22" },
+  ],
   width: "device-width",
   initialScale: 1,
+  colorScheme: "light",
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: `${SITE.name} | Premium Builders Bradford & West Yorkshire`,
+    default: SEO.title,
     template: `%s | ${SITE.name}`,
   },
-  description: SITE.description,
-  keywords: [
-    "construction Bradford",
-    "builders West Yorkshire",
-    "house extensions Bradford",
-    "loft conversions Bradford",
-    "AL Mughal Constructions",
-    "commercial construction Yorkshire",
-    "property renovation Bradford",
-    "ECO grants Bradford",
-    "brickwork Bradford",
-    "kitchen renovation Yorkshire",
-  ],
-  authors: [{ name: SITE.legalName }],
+  description: SEO.description,
+  keywords: [...SEO.keywords],
+  applicationName: SITE.name,
+  authors: [{ name: SITE.legalName, url: SITE.url }],
   creator: SITE.legalName,
   publisher: SITE.legalName,
+  category: "Construction",
+  classification: "Construction & Building Services",
+  referrer: "origin-when-cross-origin",
   formatDetection: {
     email: true,
     address: true,
@@ -54,28 +52,37 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: SITE.url,
+    languages: {
+      "en-GB": SITE.url,
+    },
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icons/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    shortcut: ["/favicon.ico"],
+  },
+  manifest: "/manifest.json",
   openGraph: {
     type: "website",
-    locale: "en_GB",
+    locale: SEO.locale,
     url: SITE.url,
     siteName: SITE.name,
-    title: `${SITE.name} | Premium Builders Bradford & West Yorkshire`,
-    description: SITE.description,
-    images: [
-      {
-        url: "/images/hero-1.webp",
-        width: 1200,
-        height: 630,
-        alt: `${SITE.name} — construction services in Bradford`,
-      },
-    ],
+    title: SEO.ogTitle,
+    description: SEO.description,
+    countryName: "United Kingdom",
+    images: [SEO.ogImage],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE.name} | Premium Builders Bradford`,
-    description: SITE.description,
-    images: ["/images/hero-1.webp"],
+    title: SEO.ogTitle,
+    description: SEO.description,
+    images: [SEO.ogImage.url],
   },
   robots: {
     index: true,
@@ -88,9 +95,12 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  category: "construction",
-  manifest: "/manifest.json",
   other: {
+    "geo.region": "GB-WY",
+    "geo.placename": "Bradford, West Yorkshire",
+    "geo.position": SITE.geo.icbm,
+    ICBM: SITE.geo.icbm,
+    "content-language": "en-GB",
     "ai-content-declaration": "human-authored-business-content",
   },
 };
@@ -105,7 +115,9 @@ export default function RootLayout({
   return (
     <html lang="en-GB">
       <head>
-        <link rel="preload" href="/images/hero-1.webp" as="image" type="image/webp" />
+        <link rel="preload" href="/og-image.jpg" as="image" type="image/jpeg" />
+        <link rel="author" href="/humans.txt" />
+        <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs" />
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
           rel="stylesheet"

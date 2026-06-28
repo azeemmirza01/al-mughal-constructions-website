@@ -8,13 +8,51 @@ export const SITE = {
   address: {
     street: "162 Lilycroft Road",
     city: "Bradford",
+    region: "West Yorkshire",
     postcode: "BD9 5AE",
-    country: "GB",
-    full: "162 Lilycroft Road, Bradford, BD9 5AE",
+    country: "United Kingdom",
+    countryCode: "GB",
+    full: "162 Lilycroft Road, Bradford, BD9 5AE, United Kingdom",
   },
+  geo: {
+    latitude: 53.8083,
+    longitude: -1.789,
+    icbm: "53.8083, -1.789",
+  },
+  serviceAreas: [
+    "Bradford",
+    "Leeds",
+    "West Yorkshire",
+    "Yorkshire",
+    "England",
+    "United Kingdom",
+  ],
   description:
-    "AL Mughal Constructions — trusted builders in Bradford & West Yorkshire. House extensions, loft conversions, renovations, commercial construction & ECO grants. Fully insured, free quotes.",
+    "AL Mughal Constructions — trusted UK builders in Bradford, Leeds & West Yorkshire. House extensions, loft conversions, renovations, commercial construction & ECO grants. Fully insured. Free quotes. Call 07379 484100.",
 } as const;
+
+export const UK_SEO_KEYWORDS = [
+  "builders Bradford",
+  "construction company Bradford",
+  "builders Leeds",
+  "builders West Yorkshire",
+  "house extensions Bradford",
+  "house extensions Leeds",
+  "loft conversions Bradford",
+  "loft conversions West Yorkshire",
+  "property renovation Yorkshire",
+  "commercial builders UK",
+  "AL Mughal Constructions",
+  "construction company England",
+  "ECO grants Bradford",
+  "ECO grants West Yorkshire",
+  "brickwork Bradford",
+  "kitchen renovation Yorkshire",
+  "bathroom renovation Bradford",
+  "new build construction UK",
+  "general contractor West Yorkshire",
+  "building company BD9",
+] as const;
 
 export const NAV_LINKS = [
   { href: "#home", label: "Home" },
