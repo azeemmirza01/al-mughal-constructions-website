@@ -9,7 +9,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 z-50 h-[5.5rem] w-full border-b border-maroon/5 bg-white/95 shadow-sm md:h-24">
+    <header className="fixed top-0 z-50 h-[5.75rem] w-full border-b border-maroon/5 bg-white/95 shadow-sm md:h-28">
       <div className="mx-auto flex h-full max-w-6xl items-center justify-between px-4 md:px-10">
         <BrandMark variant="header" priority />
 

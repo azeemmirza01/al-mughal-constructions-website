@@ -24,7 +24,7 @@ export default function HeroCarousel() {
   return (
     <section
       id="home"
-      className="relative flex min-h-[85vh] items-center overflow-hidden pt-[5.5rem] md:pt-24"
+      className="relative flex min-h-[85vh] items-center overflow-hidden pt-[5.75rem] md:pt-28"
       aria-label="Hero"
     >
       {HERO_SLIDES.map((s, i) => (

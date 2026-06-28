@@ -44,16 +44,22 @@ export default function BrandMark({
   const isHeader = variant === "header";
 
   const logo = (
-    <Image
-      src="/images/header-logo.webp"
-      alt={`${SITE.name} logo`}
-      width={LOGO_WIDTH}
-      height={LOGO_HEIGHT}
-      className={`shrink-0 object-contain object-left ${
-        isHeader ? "h-20 w-auto md:h-24" : "h-16 w-auto md:h-20"
+    <span
+      className={`inline-flex shrink-0 items-center ${
+        isHeader ? "py-1.5 md:py-2" : "py-1.5"
       }`}
-      priority={priority}
-    />
+    >
+      <Image
+        src="/images/header-logo.webp"
+        alt={`${SITE.name} logo`}
+        width={LOGO_WIDTH}
+        height={LOGO_HEIGHT}
+        className={`object-contain object-left ${
+          isHeader ? "h-20 w-auto md:h-24" : "h-16 w-auto md:h-20"
+        }`}
+        priority={priority}
+      />
+    </span>
   );
 
   if (isHeader) {
