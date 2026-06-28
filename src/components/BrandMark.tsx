@@ -43,46 +43,29 @@ export default function BrandMark({
 }: BrandMarkProps) {
   const isHeader = variant === "header";
 
-  const logo = (
-    <span
-      className={`inline-flex shrink-0 items-center ${
-        isHeader ? "py-1.5 md:py-2" : "py-1.5"
-      }`}
-    >
-      <Image
-        src="/images/header-logo.webp"
-        alt={`${SITE.name} logo`}
-        width={LOGO_WIDTH}
-        height={LOGO_HEIGHT}
-        className={`object-contain object-left ${
-          isHeader ? "h-20 w-auto md:h-24" : "h-16 w-auto md:h-20"
-        }`}
-        priority={priority}
-      />
-    </span>
-  );
-
-  if (isHeader) {
-    return (
-      <Link
-        href="#home"
-        className="inline-flex items-center gap-1.5"
-        aria-label={`${SITE.name} home`}
-      >
-        {logo}
-        <BrandText variant="header" />
-      </Link>
-    );
-  }
-
   return (
     <Link
       href="#home"
-      className="flex flex-col items-start gap-2"
+      className="inline-flex items-center gap-1.5"
       aria-label={`${SITE.name} home`}
     >
-      {logo}
-      <BrandText variant="footer" />
+      <span
+        className={`inline-flex shrink-0 items-center ${
+          isHeader ? "py-1.5 md:py-2" : "py-1.5"
+        }`}
+      >
+        <Image
+          src="/images/header-logo.webp"
+          alt={`${SITE.name} logo`}
+          width={LOGO_WIDTH}
+          height={LOGO_HEIGHT}
+          className={`object-contain object-left ${
+            isHeader ? "h-20 w-auto md:h-24" : "h-16 w-auto md:h-20"
+          }`}
+          priority={priority}
+        />
+      </span>
+      <BrandText variant={variant} />
     </Link>
   );
 }

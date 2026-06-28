@@ -6,8 +6,8 @@ import { NAV_LINKS, SERVICES, SITE } from "@/lib/data";
 export default function Footer() {
   return (
     <footer className="bg-maroon-dark pt-14 pb-6 text-white">
-      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-4 md:grid-cols-4 md:px-10">
-        <AnimateOnScroll direction="up" className="min-w-0 space-y-3">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-4 md:grid-cols-5 md:px-10">
+        <AnimateOnScroll direction="up" className="min-w-0 space-y-3 md:col-span-2">
           <BrandMark variant="footer" />
           <p className="text-xs leading-relaxed text-white/70">
             {SITE.tagline}. Premium residential and commercial construction
