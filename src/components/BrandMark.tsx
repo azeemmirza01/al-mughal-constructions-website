@@ -10,33 +10,6 @@ type BrandMarkProps = {
 const LOGO_WIDTH = 495;
 const LOGO_HEIGHT = 477;
 
-function BrandText({ variant }: { variant: "header" | "footer" }) {
-  const isHeader = variant === "header";
-
-  return (
-    <span
-      className={`font-display font-bold leading-[1.15] ${
-        isHeader ? "text-maroon" : "text-gold-light"
-      }`}
-    >
-      <span
-        className={`block whitespace-nowrap ${
-          isHeader ? "text-base md:text-lg" : "text-sm md:text-base"
-        }`}
-      >
-        AL Mughal
-      </span>
-      <span
-        className={`block whitespace-nowrap ${
-          isHeader ? "text-base md:text-lg" : "text-sm md:text-base"
-        }`}
-      >
-        Constructions
-      </span>
-    </span>
-  );
-}
-
 export default function BrandMark({
   variant = "header",
   priority = false,
@@ -65,7 +38,15 @@ export default function BrandMark({
           priority={priority}
         />
       </span>
-      <BrandText variant={variant} />
+      <span
+        className={`whitespace-nowrap font-display font-bold leading-tight ${
+          isHeader
+            ? "text-base text-maroon md:text-lg"
+            : "text-sm text-white md:text-base"
+        }`}
+      >
+        AL Mughal Constructions
+      </span>
     </Link>
   );
 }

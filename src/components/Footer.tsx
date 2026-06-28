@@ -1,4 +1,3 @@
-import Link from "next/link";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import BrandMark from "@/components/BrandMark";
 import { NAV_LINKS, SERVICES, SITE } from "@/lib/data";
@@ -9,22 +8,22 @@ export default function Footer() {
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-4 md:grid-cols-5 md:px-10">
         <AnimateOnScroll direction="up" className="min-w-0 space-y-3 md:col-span-2">
           <BrandMark variant="footer" />
-          <p className="text-xs leading-relaxed text-white/70">
+          <p className="text-sm leading-relaxed text-white/80">
             {SITE.tagline}. Premium residential and commercial construction
             across Bradford & West Yorkshire.
           </p>
         </AnimateOnScroll>
 
         <AnimateOnScroll delay={80} direction="up">
-          <h4 className="mb-3 font-display text-xs font-semibold uppercase tracking-wider text-gold-light">
+          <h4 className="mb-4 font-display text-sm font-semibold uppercase tracking-wider text-gold-light">
             Our Services
           </h4>
-          <ul className="space-y-1.5 text-xs text-white/70">
+          <ul className="space-y-2.5 text-sm text-white/90">
             {SERVICES.slice(0, 6).map((s) => (
               <li key={s.id}>
                 <a
                   href="#services"
-                  className="transition-colors duration-300 hover:text-gold-light"
+                  className="transition-colors duration-300 hover:text-white"
                 >
                   {s.title}
                 </a>
@@ -34,15 +33,15 @@ export default function Footer() {
         </AnimateOnScroll>
 
         <AnimateOnScroll delay={160} direction="up">
-          <h4 className="mb-3 font-display text-xs font-semibold uppercase tracking-wider text-gold-light">
+          <h4 className="mb-4 font-display text-sm font-semibold uppercase tracking-wider text-gold-light">
             Quick Links
           </h4>
-          <ul className="space-y-1.5 text-xs text-white/70">
+          <ul className="space-y-2.5 text-sm font-medium text-white/90">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="transition-colors duration-300 hover:text-gold-light"
+                  className="transition-colors duration-300 hover:text-white"
                 >
                   {link.label}
                 </a>
@@ -52,15 +51,15 @@ export default function Footer() {
         </AnimateOnScroll>
 
         <AnimateOnScroll delay={240} direction="up">
-          <h4 className="mb-3 font-display text-xs font-semibold uppercase tracking-wider text-gold-light">
+          <h4 className="mb-4 font-display text-sm font-semibold uppercase tracking-wider text-gold-light">
             Contact
           </h4>
-          <ul className="space-y-2 text-xs text-white/70">
+          <ul className="space-y-2.5 text-sm text-white/90">
             {SITE.phones.map((phone) => (
               <li key={phone}>
                 <a
                   href={`tel:${phone.replace(/\s/g, "")}`}
-                  className="transition-colors duration-300 hover:text-gold-light"
+                  className="transition-colors duration-300 hover:text-white"
                 >
                   {phone}
                 </a>
@@ -69,7 +68,7 @@ export default function Footer() {
             <li>
               <a
                 href={`mailto:${SITE.email}`}
-                className="transition-colors duration-300 hover:text-gold-light"
+                className="transition-colors duration-300 hover:text-white"
               >
                 {SITE.email}
               </a>
@@ -80,17 +79,11 @@ export default function Footer() {
       </div>
 
       <AnimateOnScroll direction="fade">
-        <div className="mx-auto mt-10 flex max-w-6xl flex-col items-center justify-between gap-3 border-t border-white/10 px-4 pt-6 md:flex-row md:px-10">
-          <p className="text-xs text-white/50" suppressHydrationWarning>
+        <div className="mx-auto mt-10 max-w-6xl border-t border-white/10 px-4 pt-6 text-center md:px-10">
+          <p className="text-sm text-white/60" suppressHydrationWarning>
             &copy; {new Date().getFullYear()} {SITE.legalName}. All rights
             reserved.
           </p>
-          <Link
-            href={SITE.url}
-            className="text-xs text-gold-light transition-colors duration-300 hover:text-gold"
-          >
-            {SITE.url.replace("https://", "")}
-          </Link>
         </div>
       </AnimateOnScroll>
     </footer>
